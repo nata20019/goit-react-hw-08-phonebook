@@ -1,15 +1,17 @@
 import { nanoid } from 'nanoid';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateFilter } from '../redux/contactsSlice';
+import PropTypes from 'prop-types';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { updateFilter } from '../redux/contactsSlice';
 
-const ContactsSearch = () => {
-  const dispatch = useDispatch();
-  const filter = useSelector(state => state.contactsBook.filter);
+// const ContactsSearch = () => {
+//   const dispatch = useDispatch();
+//   const filter = useSelector(state => state.contactsBook.filter);
 
-  const handleFilterChange = e => {
-    dispatch(updateFilter(e.target.value));
-  };
+//   const handleFilterChange = e => {
+//     dispatch(updateFilter(e.target.value));
+//   };
 
+const ContactsSearch = ({ filter, onFilterChange }) => {
   const searchInputId = nanoid();
 
   return (
@@ -23,10 +25,15 @@ const ContactsSearch = () => {
         placeholder="Search contact"
         id={searchInputId}
         value={filter}
-        onChange={handleFilterChange}
+        onChange={onFilterChange}
       />
     </div>
   );
+};
+
+ContactsSearch.propTypes = {
+  filter: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
 };
 
 export default ContactsSearch;

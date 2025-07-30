@@ -10,8 +10,8 @@ const initialState = {
 
 const JoinPage = () => {
   const [formData, setFormData] = useState(initialState);
-
   const dispatch = useDispatch();
+
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
