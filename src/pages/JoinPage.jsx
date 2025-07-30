@@ -34,9 +34,9 @@ const JoinPage = () => {
             type="text"
             name="name"
             className="form-control"
-            id="username"
+            id="name"
             required
-            value={formData.username}
+            value={formData.name}
             onChange={handleChange}
           />
         </div>

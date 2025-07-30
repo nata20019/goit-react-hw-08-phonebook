@@ -6,19 +6,26 @@ const contactsSlice = createSlice({
   initialState: {
     contacts: [],
     filter: '',
-    isError: false,
+    isError: null,
     isLoading: false,
   },
   reducers: {
     updateFilter(state, action) {
       state.filter = action.payload;
     },
+    // Add a reducer to clear contacts on logout for a clean state
+    clearContacts(state) {
+      state.contacts = [];
+      state.filter = '';
+      state.isError = null;
+      state.isLoading = false;
+    },
   },
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.pending, state => {
         state.isLoading = true;
-        state.isError = false;
+        state.isError = null; // Clear previous errors
       })
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.contacts = action.payload;
@@ -30,7 +37,7 @@ const contactsSlice = createSlice({
       })
       .addCase(addContact.pending, state => {
         state.isLoading = true;
-        state.isError = false;
+        state.isError = null; // Clear previous errors
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.contacts.push(action.payload);
@@ -42,11 +49,12 @@ const contactsSlice = createSlice({
       })
       .addCase(deleteContact.pending, state => {
         state.isLoading = true;
-        state.isError = false;
+        state.isError = null; // Clear previous errors
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.contacts = state.contacts.filter(
-          contact => contact.id !== action.payload.id
+          // contact => contact.id !== action.payload.id
+          contact => contact.id !== action.payload // Use action.payload directly (which is the ID)
         );
         state.isLoading = false;
       })
@@ -57,6 +65,6 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { updateFilter } = contactsSlice.actions;
+export const { updateFilter, clearContacts } = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;

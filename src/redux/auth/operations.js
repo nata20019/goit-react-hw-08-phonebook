@@ -85,6 +85,8 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
+      // If token is invalid or expired, clear it
+      clearAuthHeader();
       return thunkAPI.rejectWithValue(error.message);
     }
   }

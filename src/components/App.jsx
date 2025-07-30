@@ -78,37 +78,6 @@ export const App = () => {
               }
             />
           </Route>
-
-          {/* <Route
-            path="/login"
-            element={
-              <React.Suspense fallback={<Loader />}>
-                <LoginPage />
-              </React.Suspense>
-            }
-          /> */}
-          {/* <Route
-            path="/join"
-            element={
-              <React.Suspense fallback={<Loader />}>
-                <JoinPage />
-              </React.Suspense>
-            }
-          /> */}
-          {/* <Route
-            path="/contacts"
-            element={
-              <Section title="Phonebook">
-                <ContactForm />
-              </Section>
-            }
-          /> */}
-          {/* {isLoading && <Loader />}
-          {isError && <p>Error loading contacts. Please try again later.</p>}
-          <Section title="Contacts">
-            <ContactsSearch />
-            <ContactsList />
-          </Section> */}
         </Routes>
       </BrowserRouter>
     </div>
