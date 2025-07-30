@@ -8,7 +8,7 @@ const initialState = {
 
 const LoginPage = () => {
   const [formData, setFormData] = useState(initialState);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -54,7 +54,7 @@ const LoginPage = () => {
             onChange={handleChange}
           />
         </div>
-        {error && <div className="alert alert-danger">{error}</div>}
+        {/* {error && <div className="alert alert-danger">{error}</div>} */}
         <button type="submit" className="btn btn-primary">
           Login
         </button>

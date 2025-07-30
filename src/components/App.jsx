@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import Section from './Section/Section';
 // import ContactForm from './ContactForm/ContactForm';
 // import ContactsSearch from './ContactsSearch';
 // import ContactsList from './ContactsList';
 import { useDispatch, useSelector } from 'react-redux';
-import { lazy, useEffect } from 'react';
+import { useEffect } from 'react';
 // import { fetchContacts } from '../redux/operations';
 // import { Loader } from './Loader/Loader';
 import { Layout } from './Layout';
