@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const initialState = {
   email: '',
@@ -22,9 +22,9 @@ const LoginPage = () => {
   };
   return (
     <div>
-      <Link to="/join" replace>
-        <h1>Login Page</h1>
-      </Link>
+      {/* <Link to="/join" replace> */}
+      <h1>Login Page</h1>
+      {/* </Link> */}
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
