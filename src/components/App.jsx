@@ -22,6 +22,8 @@ export const App = () => {
   //   dispatch(fetchContacts());
   // }, [dispatch]);
   const isRefreshing = useSelector(state => state.auth.isRefreshing);
+  // const isLoggedIn = useSelector(selectIsLoggedIn);
+  // const token = useSelector(state => state.auth.token); // Отримуємо токен зі стану
 
   useEffect(() => {
     dispatch(refreshUser());
