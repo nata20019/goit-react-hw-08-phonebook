@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from '../redux/auth/operations';
+import { logIn, register } from '../redux/auth/operations';
 
 const initialState = {
-  name: '',
   email: '',
   password: '',
 };
@@ -19,7 +18,7 @@ const JoinPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(register(formData));
+    dispatch(logIn(formData));
   };
 
   return (
