@@ -18,9 +18,6 @@ export const App = () => {
   // const isLoading = useSelector(state => state.contactsBook.isLoading);
   // const isError = useSelector(state => state.contactsBook.isError);
 
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
   const isRefreshing = useSelector(state => state.auth.isRefreshing);
   // const isLoggedIn = useSelector(selectIsLoggedIn);
   // const token = useSelector(state => state.auth.token); // Отримуємо токен зі стану
@@ -43,7 +40,10 @@ export const App = () => {
         margin: 100,
       }}
     >
-      <BrowserRouter basename="/goit-react-hw-08-phonebook">
+      <BrowserRouter
+        basename="/goit-react-hw-08-phonebook"
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+      >
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

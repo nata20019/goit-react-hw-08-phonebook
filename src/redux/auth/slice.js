@@ -17,7 +17,7 @@ const authSlice = createSlice({
       // Register
       .addCase(register.pending, state => {
         state.isRefreshing = true;
-        state.error = null; // Clear previous errors
+        state.error = null;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -28,7 +28,7 @@ const authSlice = createSlice({
       })
       .addCase(register.rejected, (state, action) => {
         state.isRefreshing = false;
-        state.error = action.payload; // Set error message
+        state.error = action.payload;
       })
       // LogIn
       .addCase(logIn.pending, state => {
@@ -72,8 +72,8 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, (state, action) => {
         state.isRefreshing = false;
-        state.token = null; // Clear token if refresh fails
-        state.isLoggedIn = false; // User is no longer logged in
+        state.token = null;
+        state.isLoggedIn = false;
         state.error = action.payload;
       });
   },

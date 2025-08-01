@@ -49,7 +49,7 @@ const contactsSlice = createSlice({
       })
       .addCase(deleteContact.pending, state => {
         state.isLoading = true;
-        state.isError = null; // Clear previous errors
+        state.isError = null;
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.contacts = state.contacts.filter(

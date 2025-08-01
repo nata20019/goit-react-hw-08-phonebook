@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../redux/auth/operations';
 
 const initialState = {
   email: '',
@@ -8,6 +9,7 @@ const initialState = {
 
 const LoginPage = () => {
   const [formData, setFormData] = useState(initialState);
+  const dispatch = useDispatch();
   // const [error, setError] = useState(null);
 
   const handleChange = e => {
@@ -19,12 +21,12 @@ const LoginPage = () => {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted:', formData);
+    dispatch(logIn(formData));
   };
   return (
     <div>
-      {/* <Link to="/join" replace> */}
       <h1>Login Page</h1>
-      {/* </Link> */}
+
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
