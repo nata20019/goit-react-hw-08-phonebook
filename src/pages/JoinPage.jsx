@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn, register } from '../redux/auth/operations';
+import { register } from '../redux/auth/operations';
 
 const initialState = {
   name: '',
